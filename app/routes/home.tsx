@@ -1,3 +1,5 @@
+import Header from '~/components/Header/Header';
+import Map from '~/components/Map/Map';
 import type { Route } from './+types/home';
 
 export function meta({}: Route.MetaArgs) {
@@ -8,5 +10,10 @@ export function meta({}: Route.MetaArgs) {
 }
 
 export default function Home() {
-  return <div>Welcome to React Router!</div>;
+  return (
+    <>
+      <Header />
+      <Map />
+    </>
+  );
 }
