@@ -1,5 +1,5 @@
 function Map() {
-  return <div>Map</div>;
+  return <div className="bg-amber-50 flex-1"></div>;
 }
 
 export default Map;

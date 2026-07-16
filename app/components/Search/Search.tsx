@@ -1,9 +1,10 @@
 function Search() {
     return (
-        <form className="flex items-center w-full max-w-100 h-12 rounded-xl overflow-hidden">
+        <form className="flex items-center w-full max-w-120 h-12 rounded-xl overflow-hidden">
             <input
                 type="text"
                 className="flex-1 h-full px-5 outline-none bg-white"
+                placeholder="Search for any IP address or domain"
             />
 
             <button
