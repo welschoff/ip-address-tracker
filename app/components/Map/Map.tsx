@@ -5,7 +5,6 @@ export default function Map() {
   const [MapComponents, setMapComponents] = useState<typeof import("react-leaflet") | null>(null);
 
   useEffect(() => {
-    // Dynamischer Import für SSR-Sicherheit im Browser
     import("react-leaflet").then((mod) => {
       setMapComponents(mod);
     });
@@ -20,8 +19,6 @@ export default function Map() {
   }
   const { MapContainer, TileLayer, Marker, Popup } = MapComponents;
 
-
-  // Typisierte Koordinate für Leaflet
   const position: LatLngExpression = [51.505, -0.09];
 
   return (
