@@ -3,7 +3,7 @@ import InfoCardSection from "./InfoCardSection"
 
 function InfoCard() {
 
-    const { data, isLoading, isError } = useLocationData("8.8.8.8")
+    const { data, isLoading, isError } = useLocationData()
 
     if (isLoading) return <div>Lade Daten...</div>
     if (isError || !data) return <div>Fehler beim Laden!</div>

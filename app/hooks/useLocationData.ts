@@ -1,10 +1,16 @@
-import { useQuery } from '@tanstack/react-query';
+import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { fetchLocationData } from '../services/ipify';
 
-export function useLocationData(ipAddress: string) {
+export function useLocationData() {
+  const queryClient = useQueryClient();
+
+  const { data: searchTerm = '8.8.8.8' } = useQuery<string>({
+    queryKey: ['searchValue'],
+    initialData: () => queryClient.getQueryData(['searchValue']) ?? '8.8.8.8',
+  });
+
   return useQuery({
-    queryKey: ['locationData', ipAddress], // ipAddress im Key sorgt für autom. Reload bei neuer IP!
-    queryFn: () => fetchLocationData(ipAddress),
-    enabled: Boolean(ipAddress), // Läuft erst, wenn eine IP vorhanden ist
+    queryKey: ['ipData', searchTerm], // ipAddress im Key sorgt für autom. Reload bei neuer IP!
+    queryFn: () => fetchLocationData(searchTerm),
   });
 }
