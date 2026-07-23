@@ -5,9 +5,9 @@ type InfoCardSectionProps = {
 
 function InfoCardSection({ title, data }: InfoCardSectionProps) {
     return (
-        <section className="flex flex-col gap-2 p-5">
-            <span>{title}</span>
-            <span className="text-2xl font-semibold">{data}</span>
+        <section className="px-5 flex flex-col gap-2 min-w-40">
+            <span className="text-xs text-gray-400 tracking-wide font-semibold">{title}</span>
+            <span className="flex text-xl font-bold">{data}</span>
         </section>
     )
 }
