@@ -1,17 +1,9 @@
+import { useLocationData } from "~/hooks/useLocationData"
 import InfoCardSection from "./InfoCardSection"
-import { useQuery } from "@tanstack/react-query"
 
 function InfoCard() {
 
-    const { data, isLoading, isError } = useQuery({
-        queryKey: ['locationData'],
-        queryFn: async () => {
-            const response = await fetch(`https://geo.ipify.org/api/v2/country?apiKey=${import.meta.env.VITE_API_KEY}&ipAddress=8.8.8.8`)
-            const result = await response.json()
-
-            return result;
-        },
-    })
+    const { data, isLoading, isError } = useLocationData("8.8.8.8")
 
     if (isLoading) return <div>Lade Daten...</div>
     if (isError || !data) return <div>Fehler beim Laden!</div>
